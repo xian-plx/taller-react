@@ -10,6 +10,7 @@ import Login from './components/Login/Login';
 import TopBar from './components/TopBar';
 import Register from './components/Register';
 import ProductList from './components/ProductList';
+import ProductDetail from './components/ProductDetail';
 
 // const clients = [
 //   {
@@ -45,6 +46,9 @@ const App = () => (
         </Route>
         <Route path="/productList">
           <ProductList />
+        </Route>
+        <Route path="/productDetail">
+          <ProductDetail />
         </Route>
       </Switch>
     </div>
