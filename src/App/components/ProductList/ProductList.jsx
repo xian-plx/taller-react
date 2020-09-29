@@ -1,25 +1,7 @@
 import React from 'react';
-
-const products = [
-  {
-    name: 'Nexus S',
-    price: 799,
-    description: 'Ve más rápido con Nexus S',
-    id: 'nexus-s',
-  },
-  {
-    name: 'Motorola XOOM™ con wifi',
-    price: 699,
-    description: 'La tablet de siguiente generación, más tablet que nunca',
-    id: 'motorola-xoom-with-wi-fi',
-  },
-  {
-    name: 'MOTOROLA XOOM™',
-    price: 299,
-    description: 'La tablet de siguiente generación',
-    id: 'motorola-xoom',
-  },
-];
+import { Link, Route, Switch } from 'react-router-dom';
+import Products from '../../objects/Product';
+import ProductDetail from '../ProductDetail';
 
 const ProductList = () => (
   <div>
@@ -34,10 +16,20 @@ const ProductList = () => (
     </div>
 
     <ul>
-      {products.map((product) => (
-        <li>
-          <span>{product.name}</span>
+      {Products.map((product) => (
+        <li key={product.id}>
+          <span>
+            <Link to={`/productDetail/${product.id}`}>
+              {product.name}
+            </Link>
+          </span>
           <p>{product.description}</p>
+          <Switch>
+            <Route path={`/productDetail/${product.id}`}>
+              <ProductDetail idProduct={product.id} />
+              {/* <ProductDetail idProduct="nexus-s" /> */}
+            </Route>
+          </Switch>
         </li>
       ))}
     </ul>

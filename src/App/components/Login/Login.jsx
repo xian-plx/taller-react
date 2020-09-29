@@ -35,9 +35,11 @@ const Login = () => {
       <br />
       {/* <p>{{mensajeLogin}}</p> */}
       <div className="botones">
-        <button type="button" className="button">
-          <Link to="/productList">Entrar</Link>
-        </button>
+        <Link to="/productList">
+          <button type="button" className="button">
+            Entrar
+          </button>
+        </Link>
       </div>
     </div>
   );
