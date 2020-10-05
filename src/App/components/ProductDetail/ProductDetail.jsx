@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductsDetail from '../../objects/ProductsDetail';
+import Products from '../../objects/Product';
 
 const chooseProduct = (id) => {
   const idSplit = id.split('/');
@@ -7,7 +8,52 @@ const chooseProduct = (id) => {
 };
 
 const ProductDetail = () => {
+  let cartList;
+  //   let array;
+  const productList = Products;
   const id = window.location.pathname;
+  let productSelected;
+
+  for (let i = 0; i < productList.length; i += 1) {
+    productList[i] = {
+      ...productList[i],
+      number: 1,
+    };
+    if (chooseProduct(id) === productList[i].id) {
+      productSelected = productList[i];
+      //   console.log(productList[i])
+    }
+  }
+
+  if (localStorage.getItem('cartList')) {
+    cartList = JSON.parse(localStorage.getItem('cartList'));
+    // console.log(JSON.parse(localStorage.getItem('cartList')))
+  }
+
+  const addToCart = (idProduct) => {
+    //   console.log(idProduct)
+    if (cartList) {
+      // console.log('ha entrado en el if')
+      for (let i = 0; i < cartList.length; i += 1) {
+        if (
+          productSelected.id === cartList[i].id
+                    && idProduct === cartList[i].id
+        ) {
+          cartList[i].number += 1;
+        }
+        // else if (productSelected.id === cartList[i].id && idProduct
+        // === cartList[i].id && cartList[i].number) {
+
+        // }
+      }
+    } else {
+      cartList = [];
+      // console.log('ha entrado en el else')
+      cartList.push(productSelected);
+    }
+    // console.log(cartList);
+    return localStorage.setItem('cartList', JSON.stringify(cartList));
+  };
 
   return (
     <div>
@@ -19,7 +65,14 @@ const ProductDetail = () => {
 
           <h1>{chosenProduct.name}</h1>
 
-          <button type="button">Añadir al carrito</button>
+          <div>
+            <button
+              type="button"
+              onClick={() => addToCart(chosenProduct.id)}
+            >
+              Añadir al carrito
+            </button>
+          </div>
 
           <p>{chosenProduct.description}</p>
 

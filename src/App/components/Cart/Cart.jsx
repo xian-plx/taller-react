@@ -16,7 +16,7 @@ const Cart = () => {
       ...productList[i],
       number: 2,
     };
-    console.log(productList[i]);
+    // console.log(productList[i]);
   }
 
   cartList = productList;

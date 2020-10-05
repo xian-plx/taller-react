@@ -144,8 +144,36 @@ p {
     font-family: Lato;
 }
 
-/*
-  Copyright Google LLC. All Rights Reserved.
-  Use of this source code is governed by an MIT-style license that
-  can be found in the LICENSE file at http://angular.io/license
-  */
+/* .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #1976d2;
+    color: white;
+    text-align: center;
+ } */
+
+div.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: #1976d2;
+    margin: 0;
+    padding: 0;
+    border: 2px solid white;
+    width: 100%;
+    clear: both; /*para que el pie se situe abajo si borras esta regal se muestra la diferencia*/
+}
+div.footer div {
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+}
+div.footer span.copyright {
+    float: right;
+    color: white;
+    font-size: 15px;
+    padding-right: 10px;
+    padding-top: 10px;
+}

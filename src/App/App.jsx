@@ -11,6 +11,8 @@ import TopBar from './components/TopBar';
 import Register from './components/Register';
 import ProductList from './components/ProductList';
 import ProductDetail from './components/ProductDetail';
+import Footer from './components/Footer';
+import Cart from './components/Cart';
 
 // const clients = [
 //   {
@@ -50,11 +52,17 @@ const App = () => (
         <Route path="/productDetail">
           <ProductDetail />
         </Route>
+        <Route path="/cart">
+          <Cart />
+        </Route>
       </Switch>
     </div>
     <div className="app">
       {/* <Login /> */}
       {/* <Register /> */}
+    </div>
+    <div>
+      <Footer />
     </div>
   </Router>
 );
